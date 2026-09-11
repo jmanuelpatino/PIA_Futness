@@ -1,46 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Futness | Hazlo saludable. Hazlo simple.</title>
-    <link rel="stylesheet" href="/PIA_Futness/Styles/global.css">
+    <link rel="stylesheet" href="/PIA_Futness/Styles/global.css" />
+    <link rel="stylesheet" href="caroulseltest.css" />
 </head>
+
 <body>
     <header class="header">
         <div class="logo">
-            <a href="/PIA_Futness/index.html" class="img-logo"><img src="" alt="Icono de caballo"></a>
+            <a href="/PIA_Futness/index.html" class="img-logo"><img src="" alt="Icono de caballo" /></a>
             <h2 class="h2-logo">Futness</h2>
         </div>
         <div class="navbar--conteiner">
             <nav class="header--nav">
                 <ul class="header--ul">
-                    <li class="header--list-item"><a href="#" class="header--link">Planes</a></li>
-                    <li class="header--list-item"><a href="#" class="header--link">Sobre Nostros</a></li>
-                    <li class="header--list-item"><a href="#" class="header--link">Inicio Sesion</a></li>
-                    <li class="header--list-item"><a href="#" class="header--link">Registrate</a></li>
+                    <li class="header--list-item">
+                        <a href="#" class="header--link">Planes</a>
+                    </li>
+                    <li class="header--list-item">
+                        <a href="#" class="header--link">Sobre Nostros</a>
+                    </li>
+                    <li class="header--list-item">
+                        <a href="#" class="header--link">Inicio Sesion</a>
+                    </li>
+                    <li class="header--list-item">
+                        <a href="#" class="header--link">Registrate</a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero--conteiner">
-            <h1>Hizlo Saludable. Hazlo Simple.</h1>
-            <h2 id="swich-question" class="hero--question">¿Tienes una vida poco saludable y no sabes como solucionarlo?</h2>
-            <p class="hero--answer">En nuestra plataforma podrás encontrar la mejor asesoría personalizada para tener la vida saludable que tanto deseas.¡Rutinas, recetas, restaurantes y más!</p>
-            <a href="#" class="hero--register">¡Empieza ya en Futness!</a>
-        </div>
-        <div class="hero--img">
-            <picture>
+    <main class="main">
+        <section class="hero">
+            <div class="hero--conteiner">
+                <h1>Hizlo Saludable. Hazlo Simple.</h1>
+                <h2 id="swich-question" class="hero--question">
+                    ¿Tienes una vida poco saludable y no sabes como solucionarlo?
+                </h2>
+                <p class="hero--answer">
+                    En nuestra plataforma podrás encontrar la mejor asesoría
+                    personalizada para tener la vida saludable que tanto
+                    deseas.¡Rutinas, recetas, restaurantes y más!
+                </p>
+                <a href="#" class="hero--register">¡Empieza ya en Futness!</a>
+            </div>
+            <div class="hero--img">
+                <picture> </picture>
+            </div>
+        </section>
 
-            </picture>
-        </div>
-    </section>
+        <section class="features">
+            <h2 class="features--title">Te ayudaremos a cambiar tu vida</h2>
 
-    <section class="recommendations">
-        <h2 class="recommendations--titule">Te ayudaremos a cambiar tu vida</h2>
-        <div class="recommendation--card"></div>
-    </section>
+            <div class="caroulsel--container">
+                <ul class="caroulsel--group">
+                    <li class="caroulsel--card">Rutinas</li>
+                    <li class="caroulsel--card">Recetas</li>
+                    <li class="caroulsel--card">Restaurantes</li>
+                    <li class="caroulsel--card">Ejercicio</li>
+                    <li class="caroulsel--card">Calma</li>
+                </ul>
+                <ul aria-hidden="" class="caroulsel--group">
+                    <li class="caroulsel--card">Rutinas</li>
+                    <li class="caroulsel--card">Recetas</li>
+                    <li class="caroulsel--card">Restaurantes</li>
+                    <li class="caroulsel--card">Ejercicio</li>
+                    <li class="caroulsel--card">Calma</li>
+                </ul>
+                <ul aria-hidden="" class="caroulsel--group">
+                    <li class="caroulsel--card">Rutinas</li>
+                    <li class="caroulsel--card">Recetas</li>
+                    <li class="caroulsel--card">Restaurantes</li>
+                    <li class="caroulsel--card">Ejercicio</li>
+                    <li class="caroulsel--card">Calma</li>
+                </ul>
+            </div>
+
+            <article class="features--card">
+                <div class="feature--conteiner">
+                    <h3 class="feature--title">Rutinas</h3>
+                    <p class="feature--description">
+                        <span class="features--card_text-span">Hazlo saludable, hazlo lo simple:</span>
+                        crea tu rutina ideal, sigue una preparada o trabajar un grupo de
+                        músculos.
+                    </p>
+                    <div class="features--icon">
+                        <img src="" alt="Icono de pesas" class="feature--img" />
+                    </div>
+                </div>
+            </article>
+
+            <article class="features--card">
+                <div class="feature--conteiner">
+                    <h3 class="feature--title">Restaurantes</h3>
+                    <p class="feature--description">
+                        <span class="features--card_text-span">Come bien, cerca de ti:</span>
+                        encuentra comida saludable y accesible en restaurantes de tu zona.
+                    </p>
+                    <div class="features--icon">
+                        <img src="" alt="Icono de restaurante" class="feature--img" />
+                    </div>
+                </div>
+            </article>
+
+            <article class="features--card">
+                <div class="feature--conteiner">
+                    <h3 class="feature--title">Recetas</h3>
+                    <p class="feature--description">
+                        <span class="features--card_text-span">Cocina fácil, vive mejor:</span>
+                        recetas simples con ingredientes comunes, para todo momento del
+                        día.
+                    </p>
+                    <div class="features--icon">
+                        <img src="" alt="Icono de libro de recetas" class="feature--img" />
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="">
+
+        </section>
+    </main>
+
+    <footer class="main--footer">
+        <div class="footer--info"><!-- Para el futuro --></div>
+        <div class="footer--copyright">Copyright © 2026 Futness. Todos los derechos reservados</div>
+    </footer>
 </body>
+
 </html>

@@ -1,0 +1,44 @@
+.caroulsel--container{
+    margin: 20px auto;
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+}
+
+.caroulsel--container::-webkit-scrollbar {
+    display: none;
+}
+
+.caroulsel--group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    margin: 0;
+    padding: 0;
+    animation: spin 30s linear infinite;
+    padding-right: 2em;
+}
+
+.caroulsel--card{
+    flex: 0 0 8em;
+    display: block;
+    height: .8em;
+    padding: 1.2em;
+    background-color: cornflowerblue;
+    font-size: 1.2em;
+    border-radius: .2em;
+    text-align: center;
+    align-items: center;
+    color: white;
+    text-decoration: underline;
+}
+
+@keyframes spin {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

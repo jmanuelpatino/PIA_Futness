@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 .caroulsel--container{
     margin: 20px auto;
     width: 100%;

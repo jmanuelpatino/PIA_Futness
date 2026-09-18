@@ -2,18 +2,18 @@ html{
     scroll-behavior: smooth;
 }
 
-.caroulsel--container{
+.carousel--container{
     margin: 20px auto;
     width: 100%;
     display: flex;
     overflow-x: auto;
 }
 
-.caroulsel--container::-webkit-scrollbar {
+.carousel--container::-webkit-scrollbar {
     display: none;
 }
 
-.caroulsel--group{
+.carousel--group{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +24,7 @@ html{
     padding-right: 2em;
 }
 
-.caroulsel--card{
+.carousel--card{
     flex: 0 0 8em;
     display: block;
     height: .8em;

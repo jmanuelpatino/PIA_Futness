@@ -30,11 +30,13 @@ html{
     height: .8em;
     padding: 1.2em;
     background-color: cornflowerblue;
-    font-size: 1.2em;
+    font-size: 1em;
     border-radius: .2em;
     text-align: center;
     align-items: center;
     color: white;
+    box-sizing: content-box;
+    font-weight: bold;
 }
 
 @keyframes spin {

@@ -42,10 +42,12 @@
 
     <main class="main">
         <section class="hero">
-            <div class="title-content">
-                <span></span>
-                <em>Sobre Futness</em>
-            </div>
+            <header class="header">
+                <div class="title-content">
+                    <span></span>
+                    <em>Sobre Futness</em>
+                </div>
+            </header>
 
             <div class="hero--conteiner">
                 <h1>Hazlo simple. Hazlo saludable.</h1>
@@ -83,7 +85,65 @@
             </div>
         </section>
 
+        <section class="platform-philosophy">
+            <header class="header">
+                <div class="title-content">
+                    <span></span>
+                    <em>Nuestra filosofia</em>
+                </div>
+            </header>
+            <div class="philosophy--container">
+                <div class="philosophy--intro">
+                    <h2>¿Cómo funciona Futness a tu ritmo?</h2>
+                    <p>
+                        Nuestra plataforma no te impone rutinas rígidas ni dietas imposibles. El avance es <strong>progresivo y completamente libre</strong>, adaptándose a tu tiempo, tus gustos y tu estilo de vida. Cualquiera puede organizarlo como quiera.
+                    </p>
+                </div>
+
+                <div class="philosophy--grid">
+                    <!-- Componente 1: Rutinas -->
+                    <div class="philosophy--card">
+                        <div class="card-icon">🏋️‍♂️</div>
+                        <h3>1. Rutinas Dinámicas</h3>
+                        <p>
+                            Diseñadas para activarte sin importar si tienes 15 minutos o una hora. Elige enfocarte en grupos musculares específicos o sigue planes preestablecidos que avanzan al ritmo de tu resistencia.
+                        </p>
+                    </div>
+
+                    <!-- Componente 2: Recetas -->
+                    <div class="philosophy--card">
+                        <div class="card-icon">🥗</div>
+                        <h3>2. Recetas Accesibles</h3>
+                        <p>
+                            Olvídate de ingredientes exóticos y caros. Te ofrecemos preparaciones nutritivas y familiares hechas con lo que consigues en cualquier tienda o plaza de Medellín, facilitando tu día a día en la cocina.
+                        </p>
+                    </div>
+
+                    <!-- Componente 3: Restaurantes -->
+                    <div class="philosophy--card">
+                        <div class="card-icon">🏪</div>
+                        <h3>3. Restaurantes Locales</h3>
+                        <p>
+                            Comer bien fuera de casa sí es posible y económico. Te conectamos con opciones gastronómicas saludables ubicadas en tu propia zona, pensadas para mantener tus hábitos sin descuidar tu bolsillo.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="philosophy--conclusion">
+                    <p>
+                        Mediante nuestras <em>playlists de bienestar</em>, tú tienes el control absoluto: combina ejercicio, nutrición y salidas en un solo panel personalizado.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <section class="FAQ">
+            <header class="header">
+                <div class="title-content">
+                    <span></span>
+                    <em>Preguntas frecuentes</em>
+                </div>
+            </header>
             <div class="conteiner-FAQ">
                 <div class="Q">
                     <details>
@@ -142,6 +202,12 @@
         </section>
 
         <section>
+            <header class="header">
+                <div class="title-content">
+                    <span></span>
+                    <em>Quienes somos</em>
+                </div>
+            </header>
             <div class="info--card">
                 <div class="img-card">
                     <img src="" alt="">
@@ -233,7 +299,44 @@
         </section>
 
         <section class="support">
+            <div class="support--container">
+                <div class="support--header">
+                    <h2>Soporte y Comentarios</h2>
+                    <p>¿Encontraste un error, tienes una sugerencia o quieres darnos feedback? Escríbenos directamente.</p>
+                </div>
 
+                <form action="https://formspree.io/f/meaoglkw" method="POST" class="support--form">
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="nombre" required placeholder="Tu nombre completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" required placeholder="tucorreo@ejemplo.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Categoría:</label>
+                        <select id="category" name="categoria" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="bug">Reportar un Bug / Error</option>
+                            <option value="feedback">Feedback / Sugerencia</option>
+                            <option value="restaurant">Sugerir un Restaurante</option>
+                            <option value="other">Otro asunto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensaje:</label>
+                        <textarea id="message" name="mensaje" rows="5" required placeholder="Cuéntanos los detalles..."></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de Futness">
+
+                    <button type="submit" class="support--submit-btn">Enviar Mensaje</button>
+                </form>
+            </div>
         </section>
     </main>
 
@@ -241,9 +344,7 @@
         <div class="footer--info">
             <div>
                 <a href="index.html"><img src="" alt="El caballo representativo del logo de Futness"></a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, consectetur hic? Voluptatibus
-                    repellat, accusantium id repellendus minus, ratione blanditiis in debitis dicta autem numquam harum
-                    inventore eum ipsum nemo aut?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, consectetur hic? Voluptatibus repellat, accusantium id repellendus minus, ratione blanditiis in debitis dicta autem numquam harum inventore eum ipsum nemo aut?</p>
             </div>
 
             <div>

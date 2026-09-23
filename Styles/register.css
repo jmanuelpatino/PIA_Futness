@@ -29,6 +29,6 @@
 .input:focus ~ label, .input:valid ~ label{
     transform: translateY(-60%) scale(0.8);
     padding: 0.2rem;
-    background-color: white;
+    background-color: #e9e3d0;
     color: #1a73e8;
 }

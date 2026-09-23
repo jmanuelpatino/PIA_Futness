@@ -4,3 +4,11 @@
     box-sizing: border-box;
     font-family: 'Plus Jakarta Sans';
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #e9e3d0;
+}

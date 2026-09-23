@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea tu cuenta | Futness</title>
+    <link rel="stylesheet" href="/Styles/global.css" />
+</head>
+
+<body>
+    <header class="main--header">
+        <div class="logo">
+            <a href="index.html" class="img-logo"><img src="" alt="Icono de caballo" /></a>
+            <h2 class="h2-logo">Futness</h2>
+        </div>
+        <div class="navbar--conteiner">
+            <h1>Crea tu cuenta</h1>
+            <a href="index.html"><img src="" alt="X"></a>
+        </div>
+    </header>
+
+    <main class="main">
+        <section>
+            <div class="progress-bar">
+                <div class="step-conteiner">
+                    <h2>Gracias por decirnos tus preferencias.</h2>
+                    <div class="step">
+                        <div class="bullet">
+                            <span>1</span>
+                        </div>
+                        <p>
+                            ¿Qué quieres trabajar en Futness?
+                        </p>
+                        <div class="check fas fa-check"></div>
+                    </div>
+
+                    <div class="step">
+                        <div class="bullet">
+                            <span>2</span>
+                        </div>
+                        <p>
+                            Cuéntanos sobre ti
+                        </p>
+                        <div class="check fas fa-check"></div>
+                    </div>
+
+                    <div class="step">
+                        <div class="bullet">
+                            <span>3</span>
+                        </div>
+                        <p>
+                            Tus hábitos y estilo de vida
+                        </p>
+                        <div class="check fas fa-check"></div>
+                    </div>
+
+                    <div class="step">
+                        <div class="bullet">
+                            <span>4</span>
+                        </div>
+                        <p>
+                            Confirma todo lo que nos dijiste.
+                        </p>
+                        <div class="check fas fa-check"></div>
+                    </div>
+
+                    <div class="step">
+                        <div class="bullet">
+                            <span>5</span>
+                        </div>
+                        <p>
+                            ¡Empieza ya a utilizar Futness!
+                        </p>
+                        <div class="check fas fa-check"></div>
+                    </div>
+
+                    <footer>
+                        <h3>Estamos configurando Futness según tus objetivos.</h3>
+                        <p>
+                            ¿Te equivocaste poniendo un campo?
+                            No te preocupes luego lo puedes editar
+                        </p>
+                    </footer>
+                </div>
+            </div>
+
+            <div class="info--conteiner">
+                <div>
+                    <h2>Hazlo simple. Hazlo saludable.</h2>
+                </div>
+
+                <div>
+                    <img src="" alt="✔️">
+                    <h3>Rutinas</h3>
+                    <p>Crea tu rutina ideal, siguee una preparada o trabaja un grupo muscular.</p>
+                </div>
+
+                <div>
+                    <img src="" alt="✔️">
+                    <h3>Restaurantes</h3>
+                    <p>Encuentra comida saludable y accesible en restaurantes de tu zona.</p>
+                </div>
+
+                <div>
+                    <img src="" alt="✔️">
+                    <h3>Recetas</h3>
+                    <p>Recetas simples con ingredientes comunes, para cualquier momento del dia.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="multi-step-form">
+            <div class="form-outer">
+                <form>
+                    <div class="page slide-page">
+                        <header>
+                            <h2>¿Qué es lo que más buscas de Futness?</h2>
+                            <p> Selecciona todas las opciones que quieras.</p>
+                        </header>
+                        <div class="grupo-opciones">
+                            <div class="opcion-checkbox">
+                                <input type="checkbox" id="opt-restaurantes" value="restaurantes">
+                                <label for="opt-restaurantes">
+                                    <i class="fa-solid fa-store"></i>
+                                    <span>Restaurantes con comida saludable</span>
+                                </label>
+                            </div>
+
+                            <div class="opcion-checkbox">
+                                <input type="checkbox" id="opt-recetas" value="recetas">
+                                <label for="opt-recetas">
+                                    <i class="fa-solid fa-bowl-rice"></i>
+                                    <span>Recetas balanceadas y sencillas</span>
+                                </label>
+                            </div>
+
+                            <div class="opcion-checkbox">
+                                <input type="checkbox" id="opt-rutinas" value="rutinas">
+                                <label for="opt-rutinas">
+                                    <i class="fa-solid fa-dumbbell"></i>
+                                    <span>Rutinas y trabajar mi cuerpo</span>
+                                </label>
+                            </div>
+
+                            <div class="opcion-checkbox">
+                                <input type="checkbox" id="opt-habitos" value="habitos">
+                                <label for="opt-habitos">
+                                    <i class="fa-solid fa-heart"></i>
+                                    <span>Mejorar en general mis hábitos</span>
+                                </label>
+                            </div>
+                        </div>
+                        <footer>
+                            <button class="btn-continuar" id="btn-siguiente">Continuar</button>
+                        </footer>
+                    </div>
+
+                    <div class="page">
+                        <header>
+                            <h2>Cuéntanos sobre ti</h2>
+                            <p>Esto nos ayudara a darte un mejor servicio</p>
+                            <p>(*) campo obligatorio</p>
+                        </header>
+                        <div>
+                            <div class="input-group">
+                                <label class="user-label">¿Qué día naciste?*</label>
+                                <input type="date" required autocomplete="off" class="input" minlength="3">
+                            </div>
+
+                            <div class="input-group">
+                                <label class="user-label">¿Cuántos años tienes?*</label>
+                                <input type="number" required autocomplete="off" class="input" minlength="3">
+                            </div>
+
+                            <div class="input-group">
+                                <label class="user-label">¿Cuánto mides?* (metros)</label>
+                                <input type="number" required autocomplete="off" class="input" minlength="3">
+                            </div>
+
+                            <div class="input-group">
+                                <label class="user-label">¿Cuánto pesas?* (Kilos)</label>
+                                <input type="number" required autocomplete="off" class="input" minlength="3">
+                            </div>
+
+                            <div class="input-group">
+                                <select id="select-pais" required class="input">
+                                    <option value="" hidden>¿En qué país vives?*</option>
+                                    <option value="CO">Colombia</option>
+                                    <option value="MX">México</option>
+                                    <option value="AR">Argentina</option>
+                                    <option value="CL">Chile</option>
+                                    <option value="ES">España</option>
+                                    <option value="PE">Perú</option>
+                                    <option value="EC">Ecuador</option>
+                                    <option value="VE">Venezuela</option>
+                                    <option value="US">Estados Unidos</option>
+                                    <option value="UY">Uruguay</option>
+                                    <option value="PA">Panamá</option>
+                                    <option value="CR">Costa Rica</option>
+                                    <option value="DO">República Dominicana</option>
+                                    <option value="GT">Guatemala</option>
+                                    <option value="BO">Bolivia</option>
+                                    <option value="PY">Paraguay</option>
+                                    <option value="HN">Honduras</option>
+                                    <option value="SV">El Salvador</option>
+                                    <option value="NI">Nicaragua</option>
+                                    <option value="CU">Cuba</option>
+                                    <option value="PR">Puerto Rico</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group" style="position: relative;">
+                                <label class="user-label">¿Cuál es tu dirección?*</label>
+                                <input type="text" id="input-direccion" required autocomplete="off" class="input"
+                                    placeholder="Empieza a escribir tu dirección o barrio...">
+
+                                <!-- Contenedor donde aparecerán las sugerencias flotantes -->
+                                <div id="lista-sugerencias">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <select>
+                                    <option hidden>¿Con qué género te identificas?*</option>
+                                    <option>Hombre</option>
+                                    <option>Mujer</option>
+                                </select>
+                            </div>
+                        </div>
+                        <footer>
+                            <button class="btn-continuar" id="btn-siguiente">Continuar</button>
+                        </footer>
+                    </div>
+
+                    <div class="page">
+                        <header>
+                            <h2>¿Cuáles son tus habitos de vida?</h2>
+                            <p>Esto nos ayudara a darte un mejor servicio</p>
+                            <p>(*) campo obligatorio</p>
+                        </header>
+                        <div>
+                            <div class="input-group">
+                                <select>
+                                    <option hidden>¿Con qué frecuencia haces ejercicio físico?*</option>
+                                    <option value="">Todos o casi todos los dias</option>
+                                    <option value="">Varias veces a la semana</option>
+                                    <option value="">Alguna vez al mes</option>
+                                    <option value="">Rara vez hago ejercicio</option>
+                                    <option value="">No hago ejercicio</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <select>
+                                    <option hidden>¿Con qué frecuencia comes en restaurantes?* <em>(También incluye
+                                            domiciolios)</em></option>
+                                    <option value="">Todos o casi todos los dias</option>
+                                    <option value="">Varias veces a la semana</option>
+                                    <option value="">Alguna vez al mes</option>
+                                    <option value="">Rara vez hago ejercicio</option>
+                                    <option value="">No hago ejercicio</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <select>
+                                    <option hidden>¿Sueles elegir opciones saludables?*</option>
+                                    <option value="">Siempre</option>
+                                    <option value="">Frecuentemente</option>
+                                    <option value="">A veces</option>
+                                    <option value="">Rara vez</option>
+                                    <option value="">Nunca</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <select>
+                                    <option hidden>¿Con qué frecuencias siguen recetas?* <em>( También incluye si las
+                                            hacen en tu casa )</em></option>
+                                    <option value="">Todos o casi todos los dias</option>
+                                    <option value="">Varias veces a la semana</option>
+                                    <option value="">Alguna vez al mes</option>
+                                    <option value="">Rara vez hago ejercicio</option>
+                                    <option value="">No hago ejercicio</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <select>
+                                    <option hidden>¿Suelen hacerlo pensando si es saludable?*</option>
+                                    <option value="">Siempre</option>
+                                    <option value="">Frecuentemente</option>
+                                    <option value="">A veces</option>
+                                    <option value="">Rara vez</option>
+                                    <option value="">Nunca</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <select>
+                                    <option hidden>¿Ahora tienes una vida saludable?*</option>
+                                    <option value="">Si</option>
+                                    <option value="">No pero lo había intentado</option>
+                                    <option value="">No</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <select>
+                                    <option hidden>¿Tienes alguna restricción o alergia alimentaria?*</option>
+                                    <option value="">Ninguna</option>
+                                    <option value="">Vegetariana</option>
+                                    <option value="">Vegana</option>
+                                    <option value="">Intolerante a la lactosa</option>
+                                    <option value="">Celíaca</option>
+                                    <option value="">Otra</option>
+                                </select>
+                            </div>
+                        </div>
+                        <footer>
+                            <button class="btn-continuar" id="btn-siguiente">Continuar</button>
+                        </footer>
+                    </div>
+
+                    <div class="page">
+                        <header>
+                            <h2>Confirma todo lo que nos dijiste</h2>
+                            <p>Revisa que tus datos sean correctos. Puedes editar cualquiera haciendo clic en el botón.
+                            </p>
+                        </header>
+
+                        <!-- Contenedor donde se pintarán las respuestas -->
+                        <div id="resumen-container">
+                            <!-- Aquí se cargan los datos dinámicamente -->
+                        </div>
+
+                        <footer>
+                            <button class="btn-continuar" id="btn-confirmar">¡Todo está correcto, empezar ya!</button>
+                        </footer>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main--footer">
+        <div class="footer--info">
+            <div>
+                <a href="index.html"><img src="" alt="El caballo representativo del logo de Futness"></a>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, consectetur hic? Voluptatibus
+                    repellat, accusantium id repellendus minus, ratione blanditiis in debitis dicta autem numquam harum
+                    inventore eum ipsum nemo aut?</p>
+            </div>
+
+            <div>
+                <p>Producto</p>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#routines">Rutinas</a></li>
+                    <li><a href="index.html#recipes">Recetas</a></li>
+                    <li><a href="index.html#restaurant">Restaurantes</a></li>
+                    <li><a href="register.html">Registrate</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p>Sobre Nosotros</p>
+                <ul>
+                    <li><a href="about.html">Sobre nosotros</a></li>
+                    <li><a href="about.html#jc">Juan Camilo Fonnegra</a></li>
+                    <li><a href="about.html#jj">Juan Jose Meneses Gomez</a></li>
+                    <li><a href="about.html#jm">Juan Manuel Patiño Londoño</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p>Nuestra Red y Ayuda</p>
+                <ul>
+                    <li><a href="https://www.iecampovaldes.edu.co/" target="_blank">Campo Valdes</a></li>
+                    <li><a href="https://pascualbravo.edu.co/new_pits/alianzas-publicas-y-privadas/media-tecnica/" target="_blank">Pascual bravo</a></li>
+                    <li><a href="about.html#faq">FAQ</a></li>
+                    <li><a href="about.html#support">Soporte</a></li>
+                    <li><a href="terms.html">Terminos y politicas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer--copyright">Copyright © 2026 Futness. Todos los derechos reservados</div>
+    </footer>
+
+    <script>
+        const inputDireccion = document.getElementById('input-direccion');
+        const contenedorSugerencias = document.getElementById('lista-sugerencias');
+        let temporizador;
+
+        inputDireccion.addEventListener('input', function () {
+            clearTimeout(temporizador);
+            const query = this.value;
+
+            if (query.length < 3) {
+                contenedorSugerencias.innerHTML = '';
+                return;
+            }
+
+            // Esperamos 300ms a que el usuario deje de escribir para no saturar la API gratuita
+            temporizador = setTimeout(() => {
+                // Usamos la API pública y gratuita de Nominatim (OpenStreetMap)
+                const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&addressdetails=1&limit=5`;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        contenedorSugerencias.innerHTML = '';
+                        data.forEach(place => {
+                            const item = document.createElement('div');
+                            item.style.padding = "10px";
+                            item.style.cursor = "pointer";
+                            item.style.borderBottom = "1px solid #eee";
+                            item.textContent = place.display_name;
+
+                            // Al hacer clic en una sugerencia, se rellena el input
+                            item.addEventListener('click', function () {
+                                inputDireccion.value = place.display_name;
+                                contenedorSugerencias.innerHTML = '';
+                            });
+
+                            // Efecto visual al pasar el ratón
+                            item.onmouseover = () => item.style.background = "#f0f0f0";
+                            item.onmouseout = () => item.style.background = "white";
+
+                            contenedorSugerencias.appendChild(item);
+                        });
+                    })
+                    .catch(error => console.error('Error buscando dirección:', error));
+            }, 300);
+        });
+
+        // Ocultar sugerencias si se hace clic fuera
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('#input-direccion') && !e.target.closest('#lista-sugerencias')) {
+                contenedorSugerencias.innerHTML = '';
+            }
+        });
+    </script>
+
+    <script>
+        // Supongamos que manejas tus páginas con una clase que las oculta/muestra (ej. .page)
+        const pages = document.querySelectorAll('.page');
+        let paginaActual = 0;
+
+        // Función para mostrar una página específica y ocultar las demás
+        function mostrarPagina(index) {
+            pages.forEach((page, i) => {
+                page.style.display = (i === index) ? 'block' : 'none';
+            });
+            paginaActual = index;
+
+            // Si llegamos a la página de confirmación (ejemplo: la tercera página, índice 2), generamos el resumen
+            if (index === 2) {
+                generarResumen();
+            }
+        }
+
+        // Inicializar mostrando la primera página
+        mostrarPagina(0);
+
+        // Botones de continuar de tus formularios
+        document.querySelectorAll('.btn-continuar').forEach((btn, index) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (paginaActual < pages.length - 1) {
+                    mostrarPagina(paginaActual + 1);
+                }
+            });
+        });
+
+        // Función que recopila los datos y los dibuja en la pantalla
+        function generarResumen() {
+            const contenedor = document.getElementById('resumen-container');
+            contenedor.innerHTML = ''; // Limpiar resumen anterior
+
+            // Capturamos los valores directamente de tus inputs y selects existentes
+            const fechaNacimiento = document.querySelector('input[type="date"]')?.value || 'No especificado';
+            const edad = document.querySelectorAll('input[type="number"]')[0]?.value || 'No especificado';
+            const estatura = document.querySelectorAll('input[type="number"]')[1]?.value || 'No especificado';
+            const peso = document.querySelectorAll('input[type="number"]')[2]?.value || 'No especificado';
+            const pais = document.getElementById('select-pais')?.selectedOptions[0]?.text || 'No especificado';
+            const direccion = document.getElementById('input-direccion')?.value || 'No especificado';
+
+            // Capturamos los selects de género y hábitos
+            const selects = document.querySelectorAll('select');
+            const genero = selects[0]?.value !== "" ? selects[0]?.value : 'No especificado';
+            const ejercicio = selects[1]?.selectedOptions[0]?.text || 'No especificado';
+            const restaurantes = selects[2]?.selectedOptions[0]?.text || 'No especificado';
+            const saludables = selects[3]?.selectedOptions[0]?.text || 'No especificado';
+            const recetas = selects[4]?.selectedOptions[0]?.text || 'No especificado';
+            const recetasSaludables = selects[5]?.selectedOptions[0]?.text || 'No especificado';
+            const vidaSaludable = selects[6]?.selectedOptions[0]?.text || 'No especificado';
+            const alergias = selects[7]?.selectedOptions[0]?.text || 'No especificado';
+
+            // Creamos la lista de elementos para mostrar
+            const items = [
+                { label: "Fecha de nacimiento", valor: fechaNacimiento, paginaTarget: 0 },
+                { label: "Edad", valor: edad, paginaTarget: 0 },
+                { label: "Estatura", valor: estatura + " metros", paginaTarget: 0 },
+                { label: "Peso", valor: peso + " Kilos", paginaTarget: 0 },
+                { label: "País", valor: pais, paginaTarget: 0 },
+                { label: "Dirección", valor: direccion, paginaTarget: 0 },
+                { label: "Género", valor: genero, paginaTarget: 0 },
+                { label: "Ejercicio físico", valor: ejercicio, paginaTarget: 1 },
+                { label: "Comer en restaurantes", valor: restaurantes, paginaTarget: 1 },
+                { label: "Opciones saludables", valor: saludables, paginaTarget: 1 },
+                { label: "Seguir recetas", valor: recetas, paginaTarget: 1 },
+                { label: "Recetas saludables", valor: recetasSaludables, paginaTarget: 1 },
+                { label: "Vida saludable actual", valor: vidaSaludable, paginaTarget: 1 },
+                { label: "Alergias / Restricciones", valor: alergias, paginaTarget: 1 }
+            ];
+
+            // Dibujamos cada dato con su botón de editar
+            items.forEach((item) => {
+                const div = document.createElement('div');
+                div.style.cssText = "display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px;";
+
+                div.innerHTML = `
+                <div>
+                    <span style="font-size: 12px; color: #6c757d; display: block; font-weight: 600;">${item.label}</span>
+                    <span style="font-size: 14px; color: #212529; font-weight: 500;">${item.valor}</span>
+                </div>
+                <button type="button" class="btn-editar" style="background: #e2e8f0; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600;">Editar</button>
+            `;
+
+                // Al hacer clic en editar, te devuelve a la página exacta (0 o 1) donde estaba ese campo
+                div.querySelector('.btn-editar').addEventListener('click', () => {
+                    mostrarPagina(item.paginaTarget);
+                });
+
+                contenedor.appendChild(div);
+            });
+        }
+    </script>
+</body>
+
+</html>

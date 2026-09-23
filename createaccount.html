@@ -165,22 +165,23 @@
                         <div>
                             <div class="input-group">
                                 <label class="user-label">¿Qué día naciste?*</label>
-                                <input type="date" required autocomplete="off" class="input" minlength="3">
+                                <input id="cumpleanos" type="date" required autocomplete="off" class="input" minlength="3">
                             </div>
 
                             <div class="input-group">
                                 <label class="user-label">¿Cuántos años tienes?*</label>
-                                <input type="number" required autocomplete="off" class="input" minlength="3">
+                                <input type="number" required autocomplete="off" class="input" min="1" max="100">
                             </div>
 
                             <div class="input-group">
                                 <label class="user-label">¿Cuánto mides?* (metros)</label>
-                                <input type="number" required autocomplete="off" class="input" minlength="3">
+                                <input type="number" required autocomplete="off" class="input" min="0.5" max="2.5"
+                                    step="0.1">
                             </div>
 
                             <div class="input-group">
                                 <label class="user-label">¿Cuánto pesas?* (Kilos)</label>
-                                <input type="number" required autocomplete="off" class="input" minlength="3">
+                                <input type="number" required autocomplete="off" class="input" min="1">
                             </div>
 
                             <div class="input-group">
@@ -243,78 +244,82 @@
                             <div class="input-group">
                                 <select>
                                     <option hidden>¿Con qué frecuencia haces ejercicio físico?*</option>
-                                    <option value="">Todos o casi todos los dias</option>
-                                    <option value="">Varias veces a la semana</option>
-                                    <option value="">Alguna vez al mes</option>
-                                    <option value="">Rara vez hago ejercicio</option>
-                                    <option value="">No hago ejercicio</option>
+                                    <option value="Always">Todos o casi todos los dias</option>
+                                    <option value="Usually">Varias veces a la semana</option>
+                                    <option value="Often">Alguna vez al mes</option>
+                                    <option value="Sometimes">Rara vez hago ejercicio</option>
+                                    <option value="Never">No hago ejercicio</option>
                                 </select>
                             </div>
 
                             <div class="input-group">
                                 <select>
-                                    <option hidden>¿Con qué frecuencia comes en restaurantes?* <em>(También incluye
-                                            domiciolios)</em></option>
-                                    <option value="">Todos o casi todos los dias</option>
-                                    <option value="">Varias veces a la semana</option>
-                                    <option value="">Alguna vez al mes</option>
-                                    <option value="">Rara vez hago ejercicio</option>
-                                    <option value="">No hago ejercicio</option>
+                                    <option hidden>
+                                        ¿Con qué frecuencia comes en restaurantes?*
+                                        <em>(También incluyedomiciolios)</em>
+                                    </option>
+                                    <option value="Always">Todos o casi todos los dias</option>
+                                    <option value="Usually">Varias veces a la semana</option>
+                                    <option value="Often">Alguna vez al mes</option>
+                                    <option value="Sometimes">Rara vez voy restaurantes</option>
+                                    <option value="Never">No voy a restaurantes</option>
                                 </select>
                             </div>
 
                             <div class="input-group">
                                 <select>
                                     <option hidden>¿Sueles elegir opciones saludables?*</option>
-                                    <option value="">Siempre</option>
-                                    <option value="">Frecuentemente</option>
-                                    <option value="">A veces</option>
-                                    <option value="">Rara vez</option>
-                                    <option value="">Nunca</option>
+                                    <option value="Always">Siempre</option>
+                                    <option value="Usually">Frecuentemente</option>
+                                    <option value="Often">A veces</option>
+                                    <option value="Sometimes">Rara vez</option>
+                                    <option value="Never">Nunca</option>
                                 </select>
                             </div>
 
                             <div class="input-group">
                                 <select>
-                                    <option hidden>¿Con qué frecuencias siguen recetas?* <em>( También incluye si las
-                                            hacen en tu casa )</em></option>
-                                    <option value="">Todos o casi todos los dias</option>
-                                    <option value="">Varias veces a la semana</option>
-                                    <option value="">Alguna vez al mes</option>
-                                    <option value="">Rara vez hago ejercicio</option>
-                                    <option value="">No hago ejercicio</option>
+                                    <option hidden>
+                                        ¿Con qué frecuencias siguen recetas?*
+                                        <em>( También incluye si las hacen en tu casa )</em>
+                                    </option>
+                                    <option value="Always">Todos o casi todos los dias</option>
+                                    <option value="Usually">Varias veces a la semana</option>
+                                    <option value="Often">Alguna vez al mes</option>
+                                    <option value="Sometimes">Rara vez hago recetas</option>
+                                    <option value="Never">No hago recetas</option>
                                 </select>
                             </div>
 
                             <div class="input-group">
                                 <select>
                                     <option hidden>¿Suelen hacerlo pensando si es saludable?*</option>
-                                    <option value="">Siempre</option>
-                                    <option value="">Frecuentemente</option>
-                                    <option value="">A veces</option>
-                                    <option value="">Rara vez</option>
-                                    <option value="">Nunca</option>
+                                    <option value="Always">Siempre</option>
+                                    <option value="Usually">Frecuentemente</option>
+                                    <option value="Often">A veces</option>
+                                    <option value="Sometimes">Rara vez</option>
+                                    <option value="Never">Nunca</option>
                                 </select>
                             </div>
 
                             <div class="input-group">
                                 <select>
                                     <option hidden>¿Ahora tienes una vida saludable?*</option>
-                                    <option value="">Si</option>
-                                    <option value="">No pero lo había intentado</option>
-                                    <option value="">No</option>
+                                    <option value="Always">Si</option>
+                                    <option value="Sometimes">No pero lo había intentado</option>
+                                    <option value="Never">No</option>
                                 </select>
                             </div>
 
                             <div class="input-group">
                                 <select>
                                     <option hidden>¿Tienes alguna restricción o alergia alimentaria?*</option>
-                                    <option value="">Ninguna</option>
-                                    <option value="">Vegetariana</option>
-                                    <option value="">Vegana</option>
-                                    <option value="">Intolerante a la lactosa</option>
-                                    <option value="">Celíaca</option>
-                                    <option value="">Otra</option>
+                                    <option value="None">Ninguna</option>
+                                    <option value="Vegetarian">Vegetariana</option>
+                                    <option value="Vegan">Vegana</option>
+                                    <option value="Lactose-intolerant">Intolerante a la lactosa</option>
+                                    <option value="Celiac">Celíaca</option>
+                                    <option value="Other">Otra</option>
                                 </select>
                             </div>
                         </div>
@@ -336,7 +341,18 @@
                         </div>
 
                         <footer>
-                            <button class="btn-continuar" id="btn-confirmar">¡Todo está correcto, empezar ya!</button>
+                            <button class="btn-continuar" id="btn-confirmar">Continuar</button>
+                        </footer>
+                    </div>
+
+                    <div class="page">
+                        <header>
+                            <h2>¿Estás listo para comenzar con Futness?</h2>
+                        </header>
+
+                        <footer>
+                            <button class="btn-continuar" id="btn-enviar">¡Sí, estoy listo!</button>
+                            <button class="btn-continuar" id="btn-volver">No, quiero volver atrás</button>
                         </footer>
                     </div>
                 </form>
@@ -378,7 +394,8 @@
                 <p>Nuestra Red y Ayuda</p>
                 <ul>
                     <li><a href="https://www.iecampovaldes.edu.co/" target="_blank">Campo Valdes</a></li>
-                    <li><a href="https://pascualbravo.edu.co/new_pits/alianzas-publicas-y-privadas/media-tecnica/" target="_blank">Pascual bravo</a></li>
+                    <li><a href="https://pascualbravo.edu.co/new_pits/alianzas-publicas-y-privadas/media-tecnica/"
+                            target="_blank">Pascual bravo</a></li>
                     <li><a href="about.html#faq">FAQ</a></li>
                     <li><a href="about.html#support">Soporte</a></li>
                     <li><a href="terms.html">Terminos y politicas</a></li>
@@ -387,157 +404,7 @@
         </div>
         <div class="footer--copyright">Copyright © 2026 Futness. Todos los derechos reservados</div>
     </footer>
-
-    <script>
-        const inputDireccion = document.getElementById('input-direccion');
-        const contenedorSugerencias = document.getElementById('lista-sugerencias');
-        let temporizador;
-
-        inputDireccion.addEventListener('input', function () {
-            clearTimeout(temporizador);
-            const query = this.value;
-
-            if (query.length < 3) {
-                contenedorSugerencias.innerHTML = '';
-                return;
-            }
-
-            // Esperamos 300ms a que el usuario deje de escribir para no saturar la API gratuita
-            temporizador = setTimeout(() => {
-                // Usamos la API pública y gratuita de Nominatim (OpenStreetMap)
-                const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&addressdetails=1&limit=5`;
-
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        contenedorSugerencias.innerHTML = '';
-                        data.forEach(place => {
-                            const item = document.createElement('div');
-                            item.style.padding = "10px";
-                            item.style.cursor = "pointer";
-                            item.style.borderBottom = "1px solid #eee";
-                            item.textContent = place.display_name;
-
-                            // Al hacer clic en una sugerencia, se rellena el input
-                            item.addEventListener('click', function () {
-                                inputDireccion.value = place.display_name;
-                                contenedorSugerencias.innerHTML = '';
-                            });
-
-                            // Efecto visual al pasar el ratón
-                            item.onmouseover = () => item.style.background = "#f0f0f0";
-                            item.onmouseout = () => item.style.background = "white";
-
-                            contenedorSugerencias.appendChild(item);
-                        });
-                    })
-                    .catch(error => console.error('Error buscando dirección:', error));
-            }, 300);
-        });
-
-        // Ocultar sugerencias si se hace clic fuera
-        document.addEventListener('click', function (e) {
-            if (!e.target.closest('#input-direccion') && !e.target.closest('#lista-sugerencias')) {
-                contenedorSugerencias.innerHTML = '';
-            }
-        });
-    </script>
-
-    <script>
-        // Supongamos que manejas tus páginas con una clase que las oculta/muestra (ej. .page)
-        const pages = document.querySelectorAll('.page');
-        let paginaActual = 0;
-
-        // Función para mostrar una página específica y ocultar las demás
-        function mostrarPagina(index) {
-            pages.forEach((page, i) => {
-                page.style.display = (i === index) ? 'block' : 'none';
-            });
-            paginaActual = index;
-
-            // Si llegamos a la página de confirmación (ejemplo: la tercera página, índice 2), generamos el resumen
-            if (index === 2) {
-                generarResumen();
-            }
-        }
-
-        // Inicializar mostrando la primera página
-        mostrarPagina(0);
-
-        // Botones de continuar de tus formularios
-        document.querySelectorAll('.btn-continuar').forEach((btn, index) => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (paginaActual < pages.length - 1) {
-                    mostrarPagina(paginaActual + 1);
-                }
-            });
-        });
-
-        // Función que recopila los datos y los dibuja en la pantalla
-        function generarResumen() {
-            const contenedor = document.getElementById('resumen-container');
-            contenedor.innerHTML = ''; // Limpiar resumen anterior
-
-            // Capturamos los valores directamente de tus inputs y selects existentes
-            const fechaNacimiento = document.querySelector('input[type="date"]')?.value || 'No especificado';
-            const edad = document.querySelectorAll('input[type="number"]')[0]?.value || 'No especificado';
-            const estatura = document.querySelectorAll('input[type="number"]')[1]?.value || 'No especificado';
-            const peso = document.querySelectorAll('input[type="number"]')[2]?.value || 'No especificado';
-            const pais = document.getElementById('select-pais')?.selectedOptions[0]?.text || 'No especificado';
-            const direccion = document.getElementById('input-direccion')?.value || 'No especificado';
-
-            // Capturamos los selects de género y hábitos
-            const selects = document.querySelectorAll('select');
-            const genero = selects[0]?.value !== "" ? selects[0]?.value : 'No especificado';
-            const ejercicio = selects[1]?.selectedOptions[0]?.text || 'No especificado';
-            const restaurantes = selects[2]?.selectedOptions[0]?.text || 'No especificado';
-            const saludables = selects[3]?.selectedOptions[0]?.text || 'No especificado';
-            const recetas = selects[4]?.selectedOptions[0]?.text || 'No especificado';
-            const recetasSaludables = selects[5]?.selectedOptions[0]?.text || 'No especificado';
-            const vidaSaludable = selects[6]?.selectedOptions[0]?.text || 'No especificado';
-            const alergias = selects[7]?.selectedOptions[0]?.text || 'No especificado';
-
-            // Creamos la lista de elementos para mostrar
-            const items = [
-                { label: "Fecha de nacimiento", valor: fechaNacimiento, paginaTarget: 0 },
-                { label: "Edad", valor: edad, paginaTarget: 0 },
-                { label: "Estatura", valor: estatura + " metros", paginaTarget: 0 },
-                { label: "Peso", valor: peso + " Kilos", paginaTarget: 0 },
-                { label: "País", valor: pais, paginaTarget: 0 },
-                { label: "Dirección", valor: direccion, paginaTarget: 0 },
-                { label: "Género", valor: genero, paginaTarget: 0 },
-                { label: "Ejercicio físico", valor: ejercicio, paginaTarget: 1 },
-                { label: "Comer en restaurantes", valor: restaurantes, paginaTarget: 1 },
-                { label: "Opciones saludables", valor: saludables, paginaTarget: 1 },
-                { label: "Seguir recetas", valor: recetas, paginaTarget: 1 },
-                { label: "Recetas saludables", valor: recetasSaludables, paginaTarget: 1 },
-                { label: "Vida saludable actual", valor: vidaSaludable, paginaTarget: 1 },
-                { label: "Alergias / Restricciones", valor: alergias, paginaTarget: 1 }
-            ];
-
-            // Dibujamos cada dato con su botón de editar
-            items.forEach((item) => {
-                const div = document.createElement('div');
-                div.style.cssText = "display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px;";
-
-                div.innerHTML = `
-                <div>
-                    <span style="font-size: 12px; color: #6c757d; display: block; font-weight: 600;">${item.label}</span>
-                    <span style="font-size: 14px; color: #212529; font-weight: 500;">${item.valor}</span>
-                </div>
-                <button type="button" class="btn-editar" style="background: #e2e8f0; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 600;">Editar</button>
-            `;
-
-                // Al hacer clic en editar, te devuelve a la página exacta (0 o 1) donde estaba ese campo
-                div.querySelector('.btn-editar').addEventListener('click', () => {
-                    mostrarPagina(item.paginaTarget);
-                });
-
-                contenedor.appendChild(div);
-            });
-        }
-    </script>
+    <script src="/script/createaccount.js"></script>
 </body>
 
 </html>

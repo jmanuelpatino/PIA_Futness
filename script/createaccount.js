@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         msg.style.marginBottom = '5px';
         msg.style.fontWeight = 'bold';
         msg.innerText = mensaje;
-        
+
         const contenedor = elementoRef.closest('.input-group') || elementoRef.parentElement;
         contenedor.insertBefore(msg, contenedor.firstChild);
     }
@@ -134,15 +134,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         if (e.target && e.target.id === 'btn-volver') {
             e.preventDefault();
-            mostrarPagina(3); // Regresa al resumen (Paso 4)
+            mostrarPagina(3);
         }
         if (e.target && e.target.id === 'btn-enviar') {
             e.preventDefault();
-            alert("¡Registro completado con éxito! Bienvenido a Futness.");
+            window.location.href = "home.html"
         }
     });
 
-    // Iniciar en el primer paso
     mostrarPagina(0);
 
 
@@ -202,23 +201,92 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach(item => {
             const div = document.createElement('div');
             div.style.cssText = "display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 10px; padding: 8px 12px; background: #fdfdfd; border: 1px solid #eee; border-radius: 6px;";
-            
+
             div.innerHTML = `
                 <div style="flex-grow: 1;">
                     <strong style="font-size: 13px; color: #555; display: block;">${item.label}:</strong>
                     <span style="font-size: 14px; color: #222;">${item.valor}</span>
                 </div>
             `;
-            
+
             const btnEditar = document.createElement('button');
             btnEditar.type = "button";
             btnEditar.innerText = "Editar";
             btnEditar.style.cssText = "padding: 5px 10px; cursor: pointer; flex-shrink: 0;";
             btnEditar.onclick = () => mostrarPagina(item.target);
-            
+
             div.appendChild(btnEditar);
             contenedor.appendChild(div);
         });
     }
 
+    // ==========================================
+    // 7. AUTOCOMPLETADO DE DIRECCIONES (Global + Dinámico por País)
+    // ==========================================
+    const inputDireccion = document.getElementById('input-direccion');
+    const listaSugerencias = document.getElementById('lista-sugerencias');
+    const selectPais = document.getElementById('select-pais'); // Referencia al select de países
+    let timeoutId = null;
+
+    if (inputDireccion && listaSugerencias) {
+        inputDireccion.addEventListener('input', (e) => {
+            const query = e.target.value.trim();
+
+            // Limpiar sugerencias si escriben menos de 3 caracteres
+            if (query.length < 3) {
+                listaSugerencias.innerHTML = '';
+                return;
+            }
+
+            // Obtener el código de país seleccionado (ej: "MX", "AR", "ES", etc.) y pasarlo a minúsculas
+            // Si no ha seleccionado ninguno, se queda vacío para buscar a nivel mundial
+            const codigoPais = selectPais && selectPais.value ? selectPais.value.toLowerCase() : '';
+
+            // Evitar peticiones excesivas usando debounce (espera 300ms)
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                // Construimos la URL de Nominatim de forma global
+                let url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5`;
+
+                // Si el usuario ya eligió un país, limitamos o sesgamos la búsqueda hacia allá para mayor precisión
+                if (codigoPais) {
+                    url += `&countrycodes=${codigoPais}`;
+                }
+
+                fetch(url, {
+                    headers: {
+                        'Accept-Language': 'es'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        listaSugerencias.innerHTML = '';
+
+                        if (data.length === 0) return;
+
+                        data.forEach(lugar => {
+                            const item = document.createElement('div');
+                            item.className = 'sugerencia-item';
+                            item.innerText = lugar.display_name;
+
+                            // Al hacer clic en una sugerencia, se rellena el input y se limpia la lista
+                            item.addEventListener('click', () => {
+                                inputDireccion.value = lugar.display_name;
+                                listaSugerencias.innerHTML = '';
+                            });
+
+                            listaSugerencias.appendChild(item);
+                        });
+                    })
+                    .catch(error => console.error('Error buscando dirección:', error));
+            }, 300);
+        });
+
+        // Ocultar las sugerencias si el usuario hace clic fuera del input o la lista
+        document.addEventListener('click', (e) => {
+            if (!inputDireccion.contains(e.target) && !listaSugerencias.contains(e.target)) {
+                listaSugerencias.innerHTML = '';
+            }
+        });
+    }
 });

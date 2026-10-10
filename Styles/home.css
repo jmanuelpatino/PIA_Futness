@@ -1,0 +1,524 @@
+/* ==========================================
+   VARIABLES GLOBALES Y CONFIGURACIÓN BASE
+   ================================---------- */
+:root {
+    --primary-color: #10b981;
+    --primary-hover: #059669;
+    --bg-sidebar: #ffffff;
+    --bg-body: #141414;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --sidebar-width: 260px;
+    --sidebar-collapsed-width: 70px;
+    --transition-speed: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ==========================================
+   ASIDE / SIDEBAR (CAPA FLOTANTE / OVERLAY)
+   ================================---------- */
+aside.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Siempre por encima del contenido */
+    overflow: visible;
+    transition: width var(--transition-speed);
+    box-shadow: 1px 0 5px #1f1f1f80; /* Sombra marcada para efecto flotante */
+}
+
+/* Botón flotante circular en la mitad para colapsar */
+.sidebar-toggle {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-muted);
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+}
+
+.sidebar-toggle .material-symbols-rounded {
+    font-size: 20px;
+    transition: transform var(--transition-speed);
+}
+
+/* Header del Sidebar */
+aside.sidebar > header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    height: 77px;
+}
+
+.header-logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.75rem;
+    overflow: hidden;
+}
+
+.header-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.header-logo-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+    transition: opacity var(--transition-speed);
+}
+
+.header-logo-text span {
+    color: var(--text-main);
+}
+
+/* Navegación del Sidebar */
+aside.sidebar nav {
+    flex: 1;
+    padding: 1rem 0.85rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Buscador */
+.search-form {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-body);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.55rem 0.75rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+}
+
+.search-form:focus-within {
+    border-color: var(--primary-color);
+}
+
+.search-form .material-symbols-rounded {
+    color: var(--text-muted);
+    font-size: 20px;
+}
+
+.search-input {
+    border: none;
+    background: none;
+    outline: none;
+    margin-left: 0.5rem;
+    width: 100%;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Botón de lupa (Modo Colapsado) */
+.search-collapsed-btn {
+    display: none;
+    background: none;
+    border: none;
+    width: 100%;
+    height: 44px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.search-collapsed-btn:hover {
+    background-color: rgba(16, 185, 129, 0.08);
+    color: var(--primary-color);
+}
+
+.search-collapsed-btn .material-symbols-rounded {
+    font-size: 20px;
+}
+
+/* Lista de Menú */
+.menu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.menu-item {
+    width: 100%;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.75rem 0.85rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    width: 100%;
+    height: 44px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.menu-link:hover {
+    background-color: rgba(16, 185, 129, 0.08);
+    color: var(--primary-color);
+}
+
+.menu-link.active {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.menu-link .material-symbols-rounded {
+    font-size: 20px;
+    min-width: 20px;
+}
+
+.menu-label {
+    transition: opacity var(--transition-speed);
+}
+
+/* Footer del Sidebar */
+aside.sidebar footer {
+    padding: 1rem 0.85rem;
+    border-top: 1px solid var(--border-color);
+}
+
+
+/* ==========================================
+   CONTENIDO PRINCIPAL
+   ================================---------- */
+main.main-content {
+    position: relative;
+    margin-left: var(--sidebar-collapsed-width); /* Se mantiene estático usando siempre el espacio del menú pequeño */
+    padding: 40px;
+    min-height: 100vh;
+    transition: none; /* Sin transiciones para evitar saltos o reacomodos */
+}
+
+/* Hero Banner */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), #141414), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd') center/cover;
+    height: 300px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+/* Catálogos en filas horizontales */
+.catalog-section {
+    margin-bottom: 30px;
+}
+
+.catalog-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #e50914;
+}
+
+.row-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: visible; /* Clave para que la tarjeta crezca hacia arriba/abajo sin cortarse */
+    padding: 1.4em .4em; /* Espacio para que respire al escalar */
+}
+
+.row-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.row-container::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+/* Tarjetas individuales */
+.card {
+    position: relative;
+    width: 320px;
+    height: 200px;
+    background: #1f1f1f;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    flex-shrink: 0;
+    z-index: 1;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(20,20,20,0.75) 15%, transparent);
+    opacity: 0; /* Oculto cuando no hay hover */
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.card-body h3 {
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 3em;
+}
+
+/* Al hacer hover aparece el degradado y la info */
+.card:hover .card-body {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   ESTADOS DE COLAPSO (SIDEBAR CERRADO / ABIERTO)
+   ================================---------- */
+body.sidebar-collapsed aside.sidebar {
+    width: var(--sidebar-collapsed-width);
+}
+
+/* El main ya no cambia su margen, permitiendo que el sidebar flote encima */
+body.sidebar-collapsed main.main-content {
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+body.sidebar-collapsed aside.sidebar .header-logo-text,
+body.sidebar-collapsed aside.sidebar .menu-label,
+body.sidebar-collapsed aside.sidebar .search-form {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: none;
+}
+
+body.sidebar-collapsed aside.sidebar .search-collapsed-btn {
+    display: flex;
+}
+
+body.sidebar-collapsed aside.sidebar > header {
+    padding: 1.5rem 0;
+    justify-content: center;
+}
+
+body.sidebar-collapsed aside.sidebar .sidebar-toggle .material-symbols-rounded {
+    transform: rotate(180deg);
+}
+
+body.sidebar-collapsed aside.sidebar nav,
+body.sidebar-collapsed aside.sidebar footer {
+    padding: 1rem 0.6rem;
+}
+
+body.sidebar-collapsed aside.sidebar .menu-link {
+    width: 44px;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: center;
+}
+
+
+/* ==========================================
+   VENTANAS MODALES (DIALOG)
+   ================================---------- */
+dialog {
+    border: none;
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    background: #ffffff;
+    margin: auto;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease, overlay 0.3s ease allow-discrete, display 0.3s ease allow-discrete;
+}
+
+dialog[open] {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@starting-style {
+    dialog[open] {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+dialog[open]::backdrop {
+    opacity: 1;
+}
+
+.dialog-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--text-main);
+    text-align: center;
+}
+
+.dialog-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.dialog-btn-option {
+    display: block;
+    text-align: center;
+    padding: 0.75rem;
+    background-color: var(--bg-body);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.dialog-btn-option:hover {
+    background-color: rgba(16, 185, 129, 0.08);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.dialog-close-form {
+    display: flex;
+    justify-content: center;
+}
+
+.dialog-btn-close {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.55rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dialog-btn-close:hover {
+    background-color: #dc2626;
+}
+
+
+/* ==========================================
+   RESPONSIVO (MÓVILES)
+   ================================---------- */
+@media (max-width: 768px) {
+    aside.sidebar {
+        transform: translateX(-100%);
+    }
+    body.sidebar-open aside.sidebar {
+        transform: translateX(0);
+    }
+    main.main-content {
+        margin-left: 0 !important;
+        padding: 1.25rem;
+    }
+}

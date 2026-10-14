@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutinas | Futness</title>
+    <link rel="icon" href="Assets/Imagenes/icon.png">
+    <link rel="stylesheet" href="/Styles/global.css" />
+    <link rel="stylesheet" href="Styles/home.css">
+    <link rel="stylesheet" href="/Styles/sidebar.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+    <aside class="sidebar">
+        <button class="sidebar-toggle" aria-label="Colapsar menú">
+            <span class="material-symbols-rounded">chevron_left</span>
+        </button>
+
+        <header>
+            <a href="home.html" class="header-logo-container">
+                <img src="Assets/Imagenes/icon.png" alt="Futness" class="header-logo" />
+                <span class="header-logo-text">Futness</span>
+            </a>
+        </header>
+
+        <nav>
+            <form class="search-form">
+                <span class="material-symbols-rounded">search</span>
+                <input type="search" class="search-input" placeholder="Buscar..." required />
+            </form>
+
+            <button class="search-collapsed-btn" aria-label="Abrir búsqueda">
+                <span class="material-symbols-rounded">search</span>
+            </button>
+
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <a href="home.html" class="menu-link">
+                        <span class="material-symbols-rounded">home</span>
+                        <p class="menu-label">Home</p>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <button commandfor="food-dialog" command="show-modal" class="menu-link">
+                        <span class="material-symbols-rounded">rice_bowl</span>
+                        <p class="menu-label">Comidas</p>
+                    </button>
+                </li>
+                <li class="menu-item">
+                    <button commandfor="exercise-dialog" command="show-modal" class="menu-link active">
+                        <span class="material-symbols-rounded">exercise</span>
+                        <p class="menu-label">Ejercicios</p>
+                    </button>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <span class="material-symbols-rounded">chat</span>
+                        <p class="menu-label">Foro</p>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <span class="material-symbols-rounded">folder_open</span>
+                        <p class="menu-label">Biblioteca</p>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <span class="material-symbols-rounded">person</span>
+                        <p class="menu-label">Perfil</p>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <span class="material-symbols-rounded">manage_accounts</span>
+                        <p class="menu-label">Administrar</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <footer>
+            <a href="#" class="menu-link">
+                <span class="material-symbols-rounded">settings</span>
+                <p class="menu-label">Ajustes</p>
+            </a>
+        </footer>
+    </aside>
+
+    <main class="main-content">
+        <!-- Hero con bienvenida personalizada -->
+        <section class="hero">
+            <h1 id="welcome-msg">¡Hola, Usuario!</h1>
+            <p id="motivational-msg">"El éxito es la suma de pequeños esfuerzos repetidos día tras día."</p>
+        </section>
+
+        <!-- Contenedor donde se inyectarán las filas de catálogos dinámicamente por categoría/tags -->
+        <section id="dynamic-catalog-container"></section>
+
+        <div class="floating-action-container">
+            <div class="floating-action-container">
+                <button commandfor="contribute-dialog" command="show-modal" class="floating-btn" title="Crear rápido">
+                    <span class="material-symbols-rounded">add</span>
+                </button>
+                <button class="floating-btn">
+                    <span class="material-symbols-rounded">question_mark</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="food-dialog">
+        <h2 class="dialog-title">¿Qué deseas hacer?</h2>
+        <div class="dialog-actions">
+            <a href="recipes.html" class="dialog-btn-option">Hacer una receta</a>
+            <a href="restaurant.html" class="dialog-btn-option">Ir a un restaurante</a>
+        </div>
+        <form method="dialog" class="dialog-close-form">
+            <button class="dialog-btn-close">Cerrar</button>
+        </form>
+    </dialog>
+
+    <dialog id="exercise-dialog">
+        <h2 class="dialog-title">¿Qué deseas hacer?</h2>
+        <div class="dialog-actions">
+            <a href="routine.html" class="dialog-btn-option">Hacer rutina</a>
+            <a href="exercise.html" class="dialog-btn-option">Trabajar músculos</a>
+        </div>
+        <form method="dialog" class="dialog-close-form">
+            <button class="dialog-btn-close">Cerrar</button>
+        </form>
+    </dialog>
+
+    <script src="script/data/data.js"></script>
+    <script src="script/home.js"></script>
+    <script>
+        // Frases motivacionales al azar
+        const quotes = [
+            '"Cuida tu cuerpo, es el único lugar que tienes para vivir."',
+            '"El único entrenamiento malo es el que no ocurre."',
+            '"Que la comida sea tu medicina y tu medicina sea tu alimento."',
+            '"Pequeños cambios hacen grandes diferencias."'
+        ];
+
+        document.getElementById('motivational-msg').textContent = quotes[Math.floor(Math.random() * quotes.length)];
+
+        function normalizeTag(tag) {
+            let clean = tag.toLowerCase().trim();
+            if (clean.includes('proteina') || clean.includes('proteínas')) {
+                return 'proteina';
+            }
+            return clean;
+        }
+
+        // Renderizar catálogos combinando categorías, tipos y tags de forma totalmente aleatoria
+        async function renderDynamicCatalogs() {
+            const allItems = await getItems();
+            const items = allItems.filter(i => i.status === 'aprobado' && i.category === 'ejercicio' && i.type === 'rutina');
+
+            const container = document.getElementById('dynamic-catalog-container');
+            container.innerHTML = '';
+
+            let potentialSections = [];
+
+            // 1. Recolectar todas las CATEGORÍAS posibles
+            const categories = [...new Set(items.map(i => i.category))];
+            categories.forEach(cat => {
+                potentialSections.push({
+                    title: cat.toUpperCase(),
+                    items: items.filter(i => i.category === cat)
+                });
+            });
+
+            // 2. Recolectar todos los TIPOS posibles (ej: rutina, receta, restaurante)
+            const types = [...new Set(items.map(i => i.type))];
+            types.forEach(type => {
+                potentialSections.push({
+                    title: type.toUpperCase() + 'S', // Ej: RUTINAS, RECETAS
+                    items: items.filter(i => i.type === type)
+                });
+            });
+
+            // 3. Recolectar todas las ETIQUETAS (tags) normalizadas
+            let tagMap = new Map();
+            items.forEach(item => {
+                if (item.tags && Array.isArray(item.tags)) {
+                    item.tags.forEach(rawTag => {
+                        let groupKey = normalizeTag(rawTag);
+                        if (!tagMap.has(groupKey)) {
+                            tagMap.set(groupKey, []);
+                        }
+                        // Evitamos duplicar items en el mismo grupo
+                        if (!tagMap.get(groupKey).some(i => i.id === item.id)) {
+                            tagMap.get(groupKey).push(item);
+                        }
+                    });
+                }
+            });
+
+            tagMap.forEach((tagItems, groupKey) => {
+                potentialSections.push({
+                    title: groupKey.toUpperCase(),
+                    items: tagItems
+                });
+            });
+
+            // 4. Mezclar TODAS las opciones al azar (Categorías, Tipos y Tags juntos)
+            potentialSections.sort(() => Math.random() - 0.5);
+
+            // 5. Seleccionar un máximo de 20 filas para no saturar la página
+            const MAX_ROWS = 20;
+            let selectedSections = potentialSections.slice(0, MAX_ROWS);
+
+            // 6. Pintar en el DOM las secciones elegidas al azar
+            selectedSections.forEach((sectionData, index) => {
+                const sectionId = `row-section-${index}`;
+                const section = document.createElement('div');
+                section.className = 'catalog-section';
+                section.innerHTML = `
+                    <h2>${sectionData.title}</h2>
+                    <div class="row-container" id="${sectionId}"></div>
+                `;
+                container.appendChild(section);
+
+                const rowContainer = document.getElementById(sectionId);
+
+                sectionData.items.forEach(item => {
+                    const cardHTML = `
+                        <article class="card" onclick="alert('${item.title}\\n\\n${item.details}')">
+                            <img src="${item.image}" alt="${item.title}">
+                            <div class="card-body">
+                                <h3>${item.title}</h3>
+                            </div>
+                        </article>
+                    `;
+                    rowContainer.innerHTML += cardHTML;
+                });
+            });
+        }
+
+        // Ejecutar al cargar la página
+        renderDynamicCatalogs();
+    </script>
+</body>
+
+</html>

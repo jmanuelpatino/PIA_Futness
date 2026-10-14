@@ -1,0 +1,273 @@
+:root {
+    --bg-color: #EFECE6;
+    --card-bg: #EAE3D9;
+    --primary-btn: #B5846B;
+    --border-green: #4CAF50;
+    --border-red: #F44336;
+    --text-color: #333333;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout con proporciones asimétricas: Formulario ancho, Certificado lateral compacto */
+.contribute-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px; /* Columna izquierda expandida, derecha tipo tarjeta fija */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    align-items: start;
+}
+
+.top-bar {
+    background-color: #B5846B;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.top-bar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Acordeón */
+.accordion-item {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    border: 2px solid transparent;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.accordion-item.valid { border-color: var(--border-green); }
+.accordion-item.invalid { border-color: var(--border-red); }
+
+.accordion-header {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 22px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    color: #333;
+}
+
+.accordion-content {
+    display: none;
+    padding: 0 25px 25px 25px;
+}
+
+.accordion-item.active .accordion-content {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input[type="text"], 
+.form-group input[type="file"] {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #dcd6cd;
+    background: #fff;
+}
+
+.image-specs-hint {
+    font-size: 0.8rem;
+    color: #666;
+    background: #dfd7cc;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-top: 6px;
+}
+
+/* Tags selector */
+.tags-selector {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.tags-selector label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* Filas de Ingredientes y Pasos de Preparación (Estilo Píldora) */
+.ingredient-row, .prep-step-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.prep-step-input {
+    flex: 1;
+    background-color: #D8CCBE !important;
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 14px 20px !important;
+    font-weight: 500;
+    color: #333;
+}
+
+.prep-step-input::placeholder { color: #555; }
+
+.ing-cant { width: 70px; padding: 10px; border-radius: 8px; border: 1px solid #dcd6cd; background: #fff; }
+.ing-nombre { flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #dcd6cd; background: #fff; }
+.ing-unidad { width: 140px; padding: 10px; border-radius: 8px; border: 1px solid #dcd6cd; background: #fff; }
+
+.btn-remove-row {
+    background: #fff;
+    border: 1px solid #ccc;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.btn-remove-row:hover {
+    background: #fde8e8;
+    color: #d32f2f;
+    border-color: #f5c6cb;
+}
+
+/* Botones de acción */
+.btn-comprobar, .btn-secundario {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background-color: #B5846B;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: opacity 0.2s;
+}
+
+.btn-comprobar:hover, .btn-secundario:hover {
+    opacity: 0.9;
+}
+
+.btn-secundario {
+    background-color: #C8B6A6;
+}
+
+/* Certificado lateral compacto (Pequeño recuadro de atención) */
+.certificate-card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 25px;
+    position: sticky;
+    top: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.certificate-card h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.certificate-steps-list {
+    list-style: none;
+    padding: 0;
+    position: relative;
+    margin: 20px 0;
+}
+
+.cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.cert-item:not(:last-child):after {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 26px;
+    width: 2px;
+    height: 25px;
+    background-color: #c2b6a8;
+}
+
+.cert-circle {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #555;
+    border-radius: 50%;
+    background: transparent;
+    display: inline-block;
+    flex-shrink: 0;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.cert-item.completed .cert-circle {
+    background-color: #333;
+    border-color: #333;
+}
+
+.cert-text strong { display: block; font-size: 0.9rem; color: #333; }
+.cert-text span { font-size: 0.75rem; color: #666; }
+
+.btn-enviar {
+    width: 100%;
+    padding: 14px;
+    border-radius: 20px;
+    border: none;
+    background-color: #B5846B;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-enviar:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-enviar:not(:disabled):hover {
+    opacity: 0.9;
+}

@@ -34,8 +34,8 @@ body {
    ================================---------- */
 aside.sidebar {
     width: var(--sidebar-width);
-    background-color: var(--bg-sidebar);
-    border-right: 1px solid var(--border-color);
+    background-color: #a27061;
+    border-right: 1px solid #a27061;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -57,7 +57,7 @@ aside.sidebar {
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background-color: #ffffff;
+    background-color: #342624;
     border: 1px solid var(--border-color);
     border-radius: 50%;
     display: flex;
@@ -141,7 +141,7 @@ aside.sidebar nav {
 }
 
 .search-form .material-symbols-rounded {
-    color: var(--text-muted);
+    color: #342624;
     font-size: 20px;
 }
 
@@ -169,7 +169,7 @@ aside.sidebar nav {
     border-radius: 10px;
     align-items: center;
     justify-content: center;
-    color: var(--text-muted);
+    color: #342624;
     cursor: pointer;
     margin-bottom: 1rem;
     transition: all 0.2s ease;
@@ -203,7 +203,7 @@ aside.sidebar nav {
     padding: 0.75rem 0.85rem;
     border-radius: 10px;
     text-decoration: none;
-    color: var(--text-muted);
+    color: #342624;
     font-weight: 500;
     font-size: 0.9rem;
     background: none;
@@ -222,9 +222,8 @@ aside.sidebar nav {
 }
 
 .menu-link.active {
-    background-color: var(--primary-color);
+    background-color: #995749;
     color: #ffffff;
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 
 .menu-link .material-symbols-rounded {
